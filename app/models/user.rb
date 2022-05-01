@@ -17,5 +17,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :purchases
 
+  
+  validates_format_of :password, with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, message: "Password include both letters and numbers"
 
 end
