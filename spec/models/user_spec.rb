@@ -10,12 +10,9 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-    
+
     context '新規登録がうまくいかない時' do
-
-
       it 'nicknameが空だと登録できない' do
-    
         @user.nickname = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
@@ -45,25 +42,23 @@ RSpec.describe User, type: :model do
         @user.password = '123qw'
         @user.password_confirmation = '123qw'
         @user.valid?
-       
+
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
-
 
       it 'passwordは半角数字だけでは登録できない' do
         @user.password = '111111'
         @user.password_confirmation = '111111'
         @user.valid?
-        
+
         expect(@user.errors.full_messages).to include('Password は半角英数を両方含む必要があります')
       end
-
 
       it 'passwordは半角英字だけでは登録できない' do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        
+
         expect(@user.errors.full_messages).to include('Password は半角英数を両方含む必要があります')
       end
 
@@ -71,13 +66,9 @@ RSpec.describe User, type: :model do
         @user.password = '123ｑｗｅ'
         @user.password_confirmation = '123ｑｗｅ'
         @user.valid?
-        
+
         expect(@user.errors.full_messages).to include('Password は半角英数を両方含む必要があります')
       end
-     
-
-
-
 
       it 'passwordとpassword_confirmationが不一致では登録できない' do
         @user.password = '123456'
@@ -128,7 +119,7 @@ RSpec.describe User, type: :model do
       end
       it 'last_name_kanaが全角(カタカナ)入力でなければ登録できない' do
         @user.last_name_kana = 'ｱｲｳｴｵ'
-        @user.valid? 
+        @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana is invalid')
       end
       it 'first_name_kanaが全角(カタカナ)入力でなければ登録できない' do
@@ -141,8 +132,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
-    
-
     end
   end
 end

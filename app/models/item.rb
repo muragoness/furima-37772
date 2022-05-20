@@ -9,8 +9,6 @@ class Item < ApplicationRecord
   belongs_to :prefectures
   belongs_to :days_for_delivery
 
-
-
   with_options presence: true do
     validates :name, :explanation, :image
 
@@ -22,7 +20,4 @@ class Item < ApplicationRecord
       validates :price, numericality: { greater_than: 300, less_than: 9_999_999 }
     end
   end
-
-
-
 end
