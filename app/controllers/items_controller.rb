@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index]
   # before_action :move_to_index, except: [:index]
   def index
-     @items = Item.includes(:user)
+    # @items = Item.includes(:user)
   end
 
   def new
@@ -19,9 +19,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-
-  end
+  # def show 
+  # end
 
   private
 
