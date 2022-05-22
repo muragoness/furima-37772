@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show]
+  before_action :authenticate_user!, except: [:index]
   
   def index
      @items = Item.all.order(id: "DESC")
@@ -20,14 +19,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
   private
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
 
   def item_params
     params.require(:item).permit(:name, :explanation, :category_id, :condition_id, :delivery_charge_id, :prefectures_id,
