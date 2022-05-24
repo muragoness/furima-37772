@@ -85,3 +85,4 @@ gem "image_processing"
 
 gem 'active_hash'
 
+gem 'payjp'
