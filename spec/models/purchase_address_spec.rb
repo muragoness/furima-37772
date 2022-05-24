@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe PurchaseAddress, type: :model do
   before do
-    user = user
-    item = item
     @purchase_address = FactoryBot.build(:purchase_address, user_id: 2, item_id: 2)
   end
 
@@ -22,7 +20,6 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
     end
 
-    
     it '郵便番号が空だと購入ができない' do
       @purchase_address.postal_code = ''
       @purchase_address.valid?
@@ -49,13 +46,11 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include("Municipalities can't be blank")
     end
 
-
     it 'addressが空だと購入できない' do
       @purchase_address.address = ''
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include("Address can't be blank")
     end
-
 
     it 'phone_numberが空だと購入できない' do
       @purchase_address.phone_number = ''
