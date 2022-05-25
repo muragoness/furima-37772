@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   before_action :move_to_index, only: [:index, :create]
 
   def index
-    redirect_to root_path if current_user.id == @item.user_id
+    
     @purchase_address = PurchaseAddress.new
   end
 
