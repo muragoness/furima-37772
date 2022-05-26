@@ -32,7 +32,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it '郵便番号が空だと購入ができない' do
         @purchase_address.postal_code = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.messages).to include postal_code: ["can't be blank", 'is invalid']
+        expect(@purchase_address.errors.messages).to include("Postal code can't be blank", 'is invalid')
       end
       it '郵便番号にハイフンがないと登録できない' do
         @purchase_address.postal_code = '12345678'
@@ -64,7 +64,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'phone_numberが空だと購入できない' do
         @purchase_address.phone_number = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
+        expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it '電話番号は数字のみでないと（ハイフンが含まれていると）購入できない' do
         @purchase_address.phone_number = '123-4567891'

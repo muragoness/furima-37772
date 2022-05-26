@@ -9,8 +9,6 @@ class PurchaseAddress
     validates :municipalities
     validates :user_id
     validates :item_id
-
-    validates :phone_number
     validates :token
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
