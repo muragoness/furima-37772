@@ -39,4 +39,10 @@ en:
       minimum: "must be greater than 300"
       maximum: "must be less than 9999999"
       linked: "must exist"
+      uniqueness: "has already been taken"
+      invalid: "is invalid"
+      pasmini: "is too short (minimum is 6 characters)"
+      include: "is invalid. Include both letters and numbers"
+      confirmation: "confirmation doesn't match Password"
+      
 
