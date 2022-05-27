@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      blank: "can't be blank"
+      mandatory: "must be other than 1"
+      nonber: "is not a number"
+      minimum: "must be greater than 300"
+      maximum: "must be less than 9999999"
+      linked: "must exist"
+
